@@ -3,8 +3,8 @@
 **FASTQ → aligned reads → SNV/indel + CNV calls → VEP annotation → pharmacogenomic database
 enrichment → cohort analytics → an interactive variant browser a researcher can actually use.**
 
-Built solo during my M1 GENIOMHE (AI & Bioinformatics) internship at Université Paris-Saclay /
-Université Évry, in a clinical pharmacogenomics lab.
+Built solo during my M1 GENIOMHE (AI & Bioinformatics) internship of Université Paris-Saclay /
+Université Évry, in a clinical pharmacogenomics lab (Grupo Duponte).
 
 > **This is a showcase repository.** It contains documentation, results, figures, two live
 > interactive demos, and selected source excerpts. The full pipeline (~1.5 MB of Python across
