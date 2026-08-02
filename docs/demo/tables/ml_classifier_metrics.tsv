@@ -1,0 +1,5 @@
+model	auc	auprc	balanced_accuracy	permutation_null_auc	cv
+ElasticNet logistic	0.82	0.74	0.76	0.50	5-fold grouped CV
+Random forest	0.86	0.79	0.80	0.51	5-fold grouped CV
+Gradient boosting	0.88	0.82	0.81	0.49	5-fold grouped CV
+Stacked ensemble	0.91	0.86	0.84	0.50	5-fold grouped CV

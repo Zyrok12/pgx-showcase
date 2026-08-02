@@ -1,0 +1,12 @@
+sample	chrom	start	end	gene	cnv_type	zygosity	callers	caller_support	confidence	pgx_drugs	requires_validation
+PAIN_009	22	42521001	42528550	CYP2D6	Deletion	heterozygous	CNVkit; ExomeDepth; GATK-gCNV; CODEX2; panelcn.MOPS	5	high	codeine; tramadol; tamoxifen; atomoxetine	yes
+PAIN_010	22	42521001	42528550	CYP2D6	Deletion	heterozygous	CNVkit; ExomeDepth; GATK-gCNV; CODEX2; panelcn.MOPS	5	high	codeine; tramadol; tamoxifen; atomoxetine	yes
+ONCO_006	22	42521001	42528550	CYP2D6	Deletion	heterozygous	CNVkit; ExomeDepth; GATK-gCNV; CODEX2; panelcn.MOPS	5	high	codeine; tramadol; tamoxifen; atomoxetine	yes
+CARDIO_002	22	42521880	42527910	CYP2D6	Duplication	heterozygous_duplication	CNVkit; ExomeDepth; GATK-gCNV; panelcn.MOPS	4	review	codeine; tramadol; metoprolol	yes
+CARDIO_004	22	42521880	42527910	CYP2D6	Duplication	heterozygous_duplication	CNVkit; ExomeDepth; GATK-gCNV; panelcn.MOPS	4	review	codeine; tramadol; metoprolol	yes
+CARDIO_012	22	42521880	42527910	CYP2D6	Duplication	homozygous_duplication	CNVkit; ExomeDepth; GATK-gCNV; CODEX2; panelcn.MOPS	5	high	codeine; tramadol; metoprolol	yes
+ONCO_005	1	110230001	110251600	GSTM1	Deletion	homozygous	CNVkit; ExomeDepth; CODEX2; panelcn.MOPS	4	review	cisplatin; busulfan	yes
+ONCO_007	1	110230001	110251600	GSTM1	Deletion	homozygous	CNVkit; ExomeDepth; CODEX2; panelcn.MOPS	4	review	cisplatin; busulfan	yes
+ONCO_008	1	110230001	110251600	GSTM1	Deletion	homozygous	CNVkit; ExomeDepth; CODEX2; panelcn.MOPS	4	review	cisplatin; busulfan	yes
+CONTROL_018	4	68492001	68523001	UGT2B17	Deletion	heterozygous	CNVkit; ExomeDepth; GATK-gCNV; CODEX2	4	review	vorinostat; steroid metabolism panel	yes
+CONTROL_021	4	68492001	68523001	UGT2B17	Deletion	heterozygous	CNVkit; ExomeDepth; GATK-gCNV; CODEX2	4	review	vorinostat; steroid metabolism panel	yes

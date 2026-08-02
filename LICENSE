@@ -1,0 +1,40 @@
+Copyright (c) 2026 Bruno Young de Castro. All rights reserved.
+
+SHOWCASE REPOSITORY
+
+This repository contains documentation, figures, result summaries, demonstration
+outputs, and selected source excerpts describing the PGX Pipeline. It is
+published for portfolio and evaluation purposes.
+
+You may view, read, and reference this material, including citing it with
+attribution.
+
+You may not redistribute, republish, sublicense, sell, or incorporate this
+material or the code excerpts it contains into another product or work without
+prior written authorization from the copyright holder.
+
+The full PGX Pipeline source code is not included in this repository and is not
+licensed for any use by its absence here.
+
+THIRD-PARTY MATERIAL
+
+The pipeline described here interoperates with external tools and knowledge
+bases (including GATK, Ensembl VEP, Strelka2, DeepVariant, Octopus, CNVkit,
+ExomeDepth, CODEX2, panelcn.MOPS, PLINK2, PyPGx, ClinPGX, CPIC, PharmGKB,
+PharmVar, DPWG, ClinVar, gnomAD, GeneBe, DGV, and DECIPHER). Each carries its
+own license and citation requirements and is governed by those terms, not by
+this one. No third-party database content is redistributed in this repository.
+
+DATA
+
+All data shown in this repository — every figure, demo page, table, and example
+— is synthetic. No patient data, and no data derived from patient samples, is
+present.
+
+NO WARRANTY
+
+This material is provided "as is", without warranty of any kind, express or
+implied. The PGX Pipeline is research-support software. It has not undergone
+clinical validation, is not a diagnostic device, and is not intended for
+clinical or diagnostic use without independent validation, qualified expert
+review, and any legally required regulatory approval.

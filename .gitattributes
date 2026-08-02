@@ -1,0 +1,14 @@
+# Keep shell scripts LF-only. Git on Windows would otherwise check them out with
+# CRLF, and bash/WSL fails on the trailing \r with "bad interpreter" errors.
+*.sh text eol=lf
+
+# Normalise text files, leave binaries alone.
+*.md   text
+*.py   text
+*.html text
+*.tsv  text
+*.json text
+
+*.png binary
+*.jpg binary
+*.jpeg binary

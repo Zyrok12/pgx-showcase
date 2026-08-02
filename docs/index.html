@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PGX Pipeline — pharmacogenomics for WES cohorts</title>
+<meta name="description" content="End-to-end pharmacogenomics pipeline: FASTQ to annotated SNV/indel/CNV calls, database enrichment, cohort analytics and an interactive variant browser.">
+<style>
+:root{
+  --bg:#f6f8fb; --panel:#fff; --ink:#0b1f3a; --muted:#5d7189; --line:#dbe5f0;
+  --blue:#0b2d57; --blue2:#123f75; --cyan:#00b8d9; --accent:#0f8a5f;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0a1220; --panel:#111d31; --ink:#e6eef8; --muted:#93a7c0; --line:#22354f;
+         --blue:#8fd3ff; --blue2:#bfe6ff; --cyan:#00b8d9; --accent:#4ad4a0; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.hero{background:linear-gradient(135deg,#061d3a,#0b2d57 60%,#0e4a76);
+  color:#e9f7ff;padding:56px 24px 48px;border-bottom:4px solid var(--cyan)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.hero h1{margin:0 0 10px;font-size:2.1rem;font-weight:850;letter-spacing:-.02em}
+.hero .tag{color:#a8d8ee;font-size:1.05rem;max-width:64ch;margin:0 0 18px}
+.hero .by{color:#7fb6d4;font-size:.9rem}
+.note{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  border-radius:9px;padding:12px 15px;margin-top:22px;font-size:.88rem;color:#cfe9f7;max-width:72ch}
+section{padding:44px 0}
+h2{font-size:1.35rem;margin:0 0 6px;letter-spacing:-.01em}
+h2+.sub{color:var(--muted);margin:0 0 22px;font-size:.95rem}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:20px;
+  display:flex;flex-direction:column}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.card p{margin:0 0 16px;color:var(--muted);font-size:.9rem;flex:1}
+.btn{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;
+  padding:9px 15px;font-weight:750;font-size:.9rem;align-self:flex-start}
+@media (prefers-color-scheme: dark){ .btn{background:#1d5f96;color:#eaf6ff} }
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--blue)}
+table{width:100%;border-collapse:collapse;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.92rem}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left}
+th{background:rgba(0,0,0,.035);font-weight:750;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+@media (prefers-color-scheme: dark){ th{background:rgba(255,255,255,.04)} }
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.hi td{font-weight:800;color:var(--accent)}
+.tbl-wrap{overflow-x:auto}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.88rem}
+.caveat{background:var(--panel);border:1px solid var(--line);border-left:4px solid #b7791f;
+  border-radius:8px;padding:14px 18px;font-size:.9rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>PGX Pipeline</h1>
+    <p class="tag">An end-to-end pharmacogenomics platform for whole-exome cohorts: raw reads to
+      annotated SNV, indel and CNV calls, pharmacogenomic database enrichment, cohort analytics,
+      and an interactive variant browser researchers can actually use.</p>
+    <p class="by">Built solo by <strong>Bruno Young de Castro</strong> · M1 GENIOMHE (AI &amp;
+      Bioinformatics), Université Paris-Saclay / Université Évry</p>
+    <div class="note">
+      <strong>Showcase site.</strong> Everything below runs on <strong>synthetic data</strong> —
+      no patient data appears anywhere. The full pipeline source is private; selected excerpts and
+      full documentation are in the
+      <a href="https://github.com/Zyrok12/pgx-showcase" style="color:#bfe6ff">GitHub repository</a>.
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Try the live output</h2>
+    <p class="sub">Real, unmodified pipeline output from a synthetic 128-sample cohort. Both are
+      self-contained single-page apps — no server, works offline.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>MegaVCF Explorer</h3>
+        <p>Every variant from every sample in one browser. Search <code>CYP2D6</code> and click a
+          variant: ACMG criteria with a live evidence editor, CPIC/DPWG/PharmGKB drug guidance,
+          star alleles, population frequencies, caller support, per-sample genotypes.</p>
+        <a class="btn" href="demo/mega_vcf_explorer.html">Open the explorer →</a>
+      </div>
+      <div class="card">
+        <h3>Analytics Dashboard</h3>
+        <p>Click a point above the Bonferroni line on the Manhattan plot — a detail card opens with
+          that variant's evidence. Then open <em>PGx + Medications</em> and click
+          <code>clopidogrel</code> to work backwards from a drug.</p>
+        <a class="btn" href="demo/analytics_dashboard_interactive.html">Open the dashboard →</a>
+      </div>
+      <div class="card">
+        <h3>Figure set</h3>
+        <p>The publication-ready matplotlib output — Manhattan, QQ, forest, gene signal, sample QC,
+          metabolizer and PGx-readiness heatmaps, ML ROC and precision-recall — with methods and
+          interpretation notes per section.</p>
+        <a class="btn ghost" href="demo/analytics/analytics_dashboard.html">Browse figures →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Validation</h2>
+    <p class="sub">F1 on GIAB HG002, whole-exome. Every standalone caller run on the same data
+      with the same reference.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Caller</th><th class="n">F1</th></tr></thead>
+        <tbody>
+          <tr><td>GATK HaplotypeCaller</td><td class="n">0.902</td></tr>
+          <tr><td>Strelka2</td><td class="n">0.909</td></tr>
+          <tr><td>DeepVariant</td><td class="n">0.911</td></tr>
+          <tr><td>PGX ensemble (PASS tier only)</td><td class="n">0.907</td></tr>
+          <tr class="hi"><td>PGX ensemble + ML triage</td><td class="n">0.929</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub" style="margin-top:20px">Synthetic cohort against a known truth set —
+      <strong>zero false positives</strong> in both validations, which was the design goal rather
+      than a coincidence.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th></th><th class="n">SNV / indel</th><th class="n">CNV</th></tr></thead>
+        <tbody>
+          <tr><td>Truth variants</td><td class="n">259</td><td class="n">24</td></tr>
+          <tr><td>True positives</td><td class="n">257</td><td class="n">23</td></tr>
+          <tr><td>False positives</td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>False negatives</td><td class="n">2</td><td class="n">1</td></tr>
+          <tr class="hi"><td>F1</td><td class="n">0.996</td><td class="n">0.978</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Read the detail</h2>
+    <p class="sub">Documentation and runnable source excerpts on GitHub.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Architecture</h3>
+        <p>Run model, the 19-stage graph, the four entry points, the five-caller CNV ensemble
+          design, and the module layout.</p>
+        <a class="btn ghost" href="https://github.com/Zyrok12/pgx-showcase/blob/main/docs/ARCHITECTURE.md">ARCHITECTURE.md →</a>
+      </div>
+      <div class="card">
+        <h3>Methods</h3>
+        <p>Why pharmacogenomics needs its own pipeline, star alleles, ACMG/AMP, calling metrics,
+          the triage model, and the cohort analytics suite.</p>
+        <a class="btn ghost" href="https://github.com/Zyrok12/pgx-showcase/blob/main/docs/METHODS.md">METHODS.md →</a>
+      </div>
+      <div class="card">
+        <h3>Results</h3>
+        <p>Validation design, full numbers, what they mean, and an honest limitations section.</p>
+        <a class="btn ghost" href="https://github.com/Zyrok12/pgx-showcase/blob/main/docs/RESULTS.md">RESULTS.md →</a>
+      </div>
+      <div class="card">
+        <h3>Code excerpts</h3>
+        <p>The calibrated gradient-boosted triage model, verbatim, and the CNV consensus voting
+          algorithm. Both self-contained and runnable with <code>--demo</code>.</p>
+        <a class="btn ghost" href="https://github.com/Zyrok12/pgx-showcase/tree/main/code-excerpts">code-excerpts/ →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="caveat">
+      <strong>Research use only.</strong> No clinical validation has been performed. This is not a
+      diagnostic device, and every output requires expert review and orthogonal validation before
+      it informs anything. Full limitations are documented in
+      <a href="https://github.com/Zyrok12/pgx-showcase/blob/main/docs/RESULTS.md#limitations">RESULTS.md</a>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 Bruno Young de Castro · Internship supervised by Marta Martín, PhD (host lab) and
+    Valérie Chaudru, PhD (Université Paris-Saclay / Université Évry) ·
+    <a href="https://github.com/Zyrok12/pgx-showcase">Repository</a>
+  </div>
+</footer>
+
+</body>
+</html>

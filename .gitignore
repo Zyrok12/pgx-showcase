@@ -1,0 +1,59 @@
+# ---------------------------------------------------------------------------
+# Safety net. This is a public showcase repository: no genomic data, no run
+# outputs, and no pipeline source belong here. If one of these patterns ever
+# fires, something was copied in by mistake.
+# ---------------------------------------------------------------------------
+
+# Sequencing and variant data - never commit, in any form
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.vcf
+*.vcf.gz
+*.bcf
+*.g.vcf.gz
+*.tbi
+*.csi
+
+# Pipeline run outputs
+runs/
+outputs/
+inputs/
+smoke_runs/
+results/
+
+# Private pipeline source - excerpts live in code-excerpts/ by explicit copy
+pipeline/
+server.py
+launch.sh
+config.local.json
+
+# Reference and database resources (large, and third-party licensed)
+resources/
+*.fa
+*.fa.gz
+*.fasta
+*.fasta.gz
+*.fai
+*.dict
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+*Zone.Identifier*
+.vscode/
+.idea/

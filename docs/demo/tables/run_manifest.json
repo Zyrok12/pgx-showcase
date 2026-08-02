@@ -1,0 +1,655 @@
+{
+  "product": "PGX Pipeline",
+  "version": "v1.0",
+  "manifest_schema_version": "1.0",
+  "config_schema_version": "1.0",
+  "created_at": "2026-06-09T11:35:00+00:00",
+  "run_id": "demo_pgx_showcase",
+  "run_label": "Synthetic PGx Executive Showcase",
+  "entry_point": "synthetic_demo",
+  "config_sha256": "ca7c414cb42de4684831cd5d51e614036d2eaec64b48f3d57e0f5e945c7c1d6d",
+  "git_commit": "synthetic-demo-build",
+  "git": {
+    "commit": "synthetic-demo-build",
+    "branch": "showcase",
+    "dirty": false
+  },
+  "source_code": {
+    "source_manifest_sha256": "90ff9df8c2bc34473bf95606da7124e56831f82137fe9b943b612086affbf174",
+    "file_count": 0,
+    "note": "Client demo uses protected runtime. Private pipeline source is not shipped in the client package."
+  },
+  "reference": {
+    "name": "GRCh38 synthetic demo reference metadata",
+    "path": "resources/reference/GRCh38.synthetic.fa",
+    "sha256": "69b2a30d35a5e6573199e48c3b3adce41d47708d329d26f53f88d98877c7665d",
+    "bundle_version": "GRCh38-demo-2026.06"
+  },
+  "reference_bundle": {
+    "version": "GRCh38-demo-2026.06",
+    "fasta": {
+      "path": "resources/reference/GRCh38.synthetic.fa",
+      "sha256": "69b2a30d35a5e6573199e48c3b3adce41d47708d329d26f53f88d98877c7665d"
+    },
+    "target_bed": {
+      "path": "resources/bed/pgx_wes_synthetic_targets.bed",
+      "sha256": "8dbbaa2addea472e143d4a3b3bf03e4a49971793e8afafc177300dc7ae724763"
+    }
+  },
+  "vep_cache": {
+    "version": "Ensembl VEP 112 synthetic metadata",
+    "dir": "resources/vep/homo_sapiens/112_GRCh38",
+    "species": "homo_sapiens",
+    "assembly": "GRCh38"
+  },
+  "kb_bundle": {
+    "name": "PGX synthetic showcase KB",
+    "version": "2026.06-demo",
+    "manifest": "resources/databases/kb_manifest.synthetic.json",
+    "resources": {
+      "pharmgkb": "demo pharmacogene/drug relationships",
+      "cpic": "demo guideline levels",
+      "dpwg": "demo dosing recommendations",
+      "pharmvar": "demo star-allele names",
+      "clinvar": "demo clinical significance classes"
+    }
+  },
+  "tools": [
+    {
+      "command": "DeepVariant",
+      "found": true,
+      "version": "synthetic demo confirmation",
+      "path": "protected runtime"
+    },
+    {
+      "command": "GATK HaplotypeCaller",
+      "found": true,
+      "version": "4.x synthetic metadata",
+      "path": "protected runtime"
+    },
+    {
+      "command": "Octopus",
+      "found": true,
+      "version": "synthetic PGx haplotype metadata",
+      "path": "protected runtime"
+    },
+    {
+      "command": "Strelka2",
+      "found": true,
+      "version": "synthetic exome caller metadata",
+      "path": "protected runtime"
+    },
+    {
+      "command": "VEP",
+      "found": true,
+      "version": "112 synthetic metadata",
+      "path": "protected runtime"
+    },
+    {
+      "command": "CNVkit",
+      "found": true,
+      "version": "synthetic CNV ensemble",
+      "path": "protected runtime"
+    },
+    {
+      "command": "ExomeDepth",
+      "found": true,
+      "version": "synthetic CNV ensemble",
+      "path": "protected runtime"
+    },
+    {
+      "command": "GATK-gCNV",
+      "found": true,
+      "version": "synthetic CNV ensemble",
+      "path": "protected runtime"
+    },
+    {
+      "command": "CODEX2",
+      "found": true,
+      "version": "synthetic CNV ensemble",
+      "path": "protected runtime"
+    },
+    {
+      "command": "panelcn.MOPS",
+      "found": true,
+      "version": "synthetic CNV ensemble",
+      "path": "protected runtime"
+    },
+    {
+      "command": "PyPGx",
+      "found": true,
+      "version": "synthetic star-allele demo",
+      "path": "protected runtime"
+    }
+  ],
+  "databases": {
+    "pharmgkb": {
+      "exists": true,
+      "path": "resources/databases/pharmgkb_synthetic_demo.tsv",
+      "size_bytes": 34,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "5a35e30835ef8c317d2609f0d09a855b8641ba9c3a29172ec022118b912d84c6"
+    },
+    "cpic": {
+      "exists": true,
+      "path": "resources/databases/cpic_synthetic_demo.tsv",
+      "size_bytes": 30,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "f46675ad8a8617c691d54124c03b2ff8b02d0c9347393685de7cccd138352bac"
+    },
+    "dpwg": {
+      "exists": true,
+      "path": "resources/databases/dpwg_synthetic_demo.tsv",
+      "size_bytes": 30,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "524029f4b3e4e2b3f903e1c16483ac67d6bfdf6fbccc4c9e301329b4625a1707"
+    },
+    "clinvar": {
+      "exists": true,
+      "path": "resources/databases/clinvar_synthetic_demo.tsv",
+      "size_bytes": 33,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "86bd4be0946ee880df9d8be715db145c28604e826ff3d92f01f2c2db05ec84f6"
+    },
+    "gnomad": {
+      "exists": true,
+      "path": "resources/databases/gnomad_synthetic_demo.tsv",
+      "size_bytes": 32,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "13d2264d4b5504765bd4022683e919465d70b1e336e263502e879cc19da7f533"
+    },
+    "dgv": {
+      "exists": true,
+      "path": "resources/databases/dgv_synthetic_demo.tsv",
+      "size_bytes": 29,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "f88d4f0f151f27c713c1fca9542c66e117be76d358a90fba6f4cc5b259e84e5c"
+    },
+    "decipher": {
+      "exists": true,
+      "path": "resources/databases/decipher_synthetic_demo.tsv",
+      "size_bytes": 34,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "6b423b24d7e1f03784a68b8f326c031f4c00a453b983915816c72418e2791088"
+    },
+    "pharmvar": {
+      "exists": true,
+      "path": "resources/databases/pharmvar_synthetic_demo.tsv",
+      "size_bytes": 34,
+      "modified": "2026-06-09T08:30:00+00:00",
+      "sha256": "b0b001c2a8fb33c29527e7c36be2556f17fa6c8305c51b04c7a02f03851f8e8e"
+    }
+  },
+  "runtime_environment": {
+    "spec_files": {
+      "environment.yml": {
+        "sha256": "e4a2c2a7c453db26f1f80de7ce0a2076045007e09c4e998930c1cd79b00812a0"
+      },
+      "requirements.txt": {
+        "sha256": "b24eee7df91d10d980db1697980ff4f81ca67f0ff18774a7e94e31f406ee52d9"
+      },
+      "Dockerfile": {
+        "sha256": "0cac9967178e301a18381be18a8098591387e44d17a6d72082d7cb6e4d38b3a9"
+      }
+    },
+    "container": {
+      "image": "pgx-engine:protected",
+      "digest": "sha256:synthetic-demo-digest"
+    }
+  },
+  "outputs": {
+    "root": "<redacted>",
+    "hash_limit_bytes": 26214400,
+    "content_manifest_sha256": "0a1ff6c675abd8f539a9c4b0acae6a7fb21e1be987482832b7ad901e6e7533f5",
+    "file_count": 88,
+    "files": [
+      {
+        "relative_path": "advanced_analytics/action_required_interactions.png",
+        "size_bytes": 16099,
+        "sha256": "f6499b90bf90c770d6585c34fe1e6ab5ab16449f5cfbb2041ea57225384c5658"
+      },
+      {
+        "relative_path": "advanced_analytics/action_required_interactions.tsv",
+        "size_bytes": 6335,
+        "sha256": "04cb5900efeeb5ddff4d4970a0cd46821f087b022404db684d1a0db8d33b0a0d"
+      },
+      {
+        "relative_path": "advanced_analytics/cnv/cnv_caller_support_heatmap.png",
+        "size_bytes": 24905,
+        "sha256": "fa5d9349ede1013d28858f06230c44c6ebe72508bfca24eb45566da155a7f8a5"
+      },
+      {
+        "relative_path": "advanced_analytics/cnv/cnv_pgx_gene_events.png",
+        "size_bytes": 16390,
+        "sha256": "1bd6124177b5b382b5fffee2c12e60efd4f8b6b077b0d09e96853049747c674e"
+      },
+      {
+        "relative_path": "advanced_analytics/cnv/cnv_pgx_genes.tsv",
+        "size_bytes": 663,
+        "sha256": "c57220a999200ec0bc63e4d0bd35a953b0caa3c4c0d3f1ba205a1a81c1027516"
+      },
+      {
+        "relative_path": "advanced_analytics/cnv/cnv_recurrent_regions.tsv",
+        "size_bytes": 274,
+        "sha256": "e6c9a9b6e1bfffb7e6aeef9b81b615d391a65c42562a5a16152d3a438a9e1243"
+      },
+      {
+        "relative_path": "advanced_analytics/cnv/cnv_segments_all_samples.tsv",
+        "size_bytes": 1800,
+        "sha256": "b59b4c417348edc78601137e0748983858723274a52cc0ff9bcf785d62114aff"
+      },
+      {
+        "relative_path": "advanced_analytics/metabolizer_activity_heatmap.png",
+        "size_bytes": 59671,
+        "sha256": "c06f8c336c9fe804119ae44819e7adf51fbff873a8c14c22fcb200e80a02ff16"
+      },
+      {
+        "relative_path": "advanced_analytics/metabolizer_phenotypes.tsv",
+        "size_bytes": 108669,
+        "sha256": "d3513d1bb70d2448f489e8cab124feccb997c9da9a39da7de549355fbf0fd3f5"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_classifier_metrics.tsv",
+        "size_bytes": 284,
+        "sha256": "0f8ebcec583f9d16ad62e5cc65ed290a1fca291f20907dfad1db3b429d318a19"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_feature_importance.png",
+        "size_bytes": 28810,
+        "sha256": "3245e6321e20786168d981a7cf52dbf50f5556276c9e7d059f133c972ac839ce"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_feature_importance.tsv",
+        "size_bytes": 435,
+        "sha256": "7e9dd71804f2b9ad9fcd889407c1980dc1d50d4c1443a1d51c273ecc30f3e1d7"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_responder_precision_recall.png",
+        "size_bytes": 10738,
+        "sha256": "ca1f676e34f29405386a4b350798c7b0135a1f7a6d7212b2cf915df4fca7d036"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_responder_predictions.tsv",
+        "size_bytes": 10790,
+        "sha256": "8f79bc5bfe40d2dd11a1ec371fd65dc42df26c505632ce2fb8ecb1fb15c587e6"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_responder_probability_distribution.png",
+        "size_bytes": 11086,
+        "sha256": "2a6b3bb0d7a0fece42cc31208bdba0ecd6b1d364a3d56dcc4abbe1822dfb9fdf"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/ml_responder_roc.png",
+        "size_bytes": 11497,
+        "sha256": "b87806604f5c5bb23636f2d5637b7cb829a303d93e1cc98eb3000e98f4d4f598"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/vae_embedding.png",
+        "size_bytes": 18166,
+        "sha256": "fa53c82a9a8a31eb48b2bdfe0660b27d7c0556e1239ae8340789e50072cd7704"
+      },
+      {
+        "relative_path": "advanced_analytics/ml_workbench/vae_embedding.tsv",
+        "size_bytes": 6266,
+        "sha256": "78ed77e779951688c7dd435ee211b46dce73c49236e4887afc3f770617485b9c"
+      },
+      {
+        "relative_path": "advanced_analytics/research_dl/review_triage_queue.png",
+        "size_bytes": 30865,
+        "sha256": "57a8a1d83c87a17e24832a949ea206093b6945adc196e84af43ff951fff10a7d"
+      },
+      {
+        "relative_path": "advanced_analytics/research_dl/review_triage_queue.tsv",
+        "size_bytes": 13168,
+        "sha256": "b5b49071851168cae9f4994f3d3ece949a40336a423450c799a580a9033f59bc"
+      },
+      {
+        "relative_path": "advanced_analytics/research_dl/variant_function_scores.png",
+        "size_bytes": 31094,
+        "sha256": "acd0f694602aec4051a4f1f21da54e53dee8b2a0b3459ff830c5c7e35c0b083d"
+      },
+      {
+        "relative_path": "advanced_analytics/research_dl/variant_function_scores.tsv",
+        "size_bytes": 7285,
+        "sha256": "4d74fe9f5a1af6e024cef91be1675fb800cc9b875d45a2d38458b3ca1c97db70"
+      },
+      {
+        "relative_path": "analytics/afs.tsv",
+        "size_bytes": 2520,
+        "sha256": "627455e4f615b7c4488cd078a0ce9717631075aa8eb24f1c3dfebff2dd23ee55"
+      },
+      {
+        "relative_path": "analytics/analytics_dashboard.html",
+        "size_bytes": 9900,
+        "sha256": "1a28955995382fdb235e5bb72042d6afdea88094a653c252cb4c28daaef3b171"
+      },
+      {
+        "relative_path": "analytics/analytics_dashboard_interactive.html",
+        "size_bytes": 421999,
+        "sha256": "df5d4c454c4abff14644868d52077474cf50797cfa6726989ca0de38a5ed60ed"
+      },
+      {
+        "relative_path": "analytics/case_control_variant_stats.png",
+        "size_bytes": 19382,
+        "sha256": "decd8715950c3dec86b2c7e8e04077d914c8f6b3b091b362fba8d5835e6c9b02"
+      },
+      {
+        "relative_path": "analytics/case_control_variant_stats_summary.tsv",
+        "size_bytes": 929,
+        "sha256": "fd4fd3ab4e4dfa25624ad864b85e03ec6abe382e6eb6bf3d75bc2a9e728f1061"
+      },
+      {
+        "relative_path": "analytics/hwe_results.tsv",
+        "size_bytes": 2928,
+        "sha256": "dc120388bb28c9bfadde72a5ba3019d31c41c8437e92255625f117f6aa17782e"
+      },
+      {
+        "relative_path": "analytics/ld_scope.tsv",
+        "size_bytes": 432,
+        "sha256": "45bd5ccb79988e9549a354e79d15521dc89b5fe8dccec23328929635f87fedd6"
+      },
+      {
+        "relative_path": "analytics/pca_scores.tsv",
+        "size_bytes": 4424,
+        "sha256": "38014d2ea759e54652251bfebcdc6b96c735913568e9a16bcf6b6bf8313bfcd5"
+      },
+      {
+        "relative_path": "analytics/pgx_readiness_heatmap.png",
+        "size_bytes": 59448,
+        "sha256": "8a79c167d64f76c3455a99168b3f9b2387340202556004ed3f4a64c0aa9bf4d6"
+      },
+      {
+        "relative_path": "analytics/sample_qc.png",
+        "size_bytes": 32488,
+        "sha256": "01873ff5a8d3200d84a8ac80e6638f64c99e24bbb012c4172af41c3e8d076f4b"
+      },
+      {
+        "relative_path": "analytics/sample_qc.tsv",
+        "size_bytes": 4726,
+        "sha256": "5e9ddae9fd8589bc5c8f7c274529c443f9fdb645d31b3f3824bada945c6068a6"
+      },
+      {
+        "relative_path": "analytics/variant_density.png",
+        "size_bytes": 18068,
+        "sha256": "f8a8ce81312965cd305e9d0adea0b4592c6df03201374afd30386c87a978f9ae"
+      },
+      {
+        "relative_path": "analytics/variant_gene_counts.png",
+        "size_bytes": 23834,
+        "sha256": "2d2129dfd4c4412f360a773993146dd66e1dc400dc99ee916b3838c5e87b7026"
+      },
+      {
+        "relative_path": "analytics/variant_gene_counts.tsv",
+        "size_bytes": 974,
+        "sha256": "79a7c67b70c9eb866522412056eadacf1eea31e53ab39c96b3971e10e1479cbc"
+      },
+      {
+        "relative_path": "analytics/variant_significance.png",
+        "size_bytes": 22542,
+        "sha256": "a798c0164179bb3f83ef53554fcf1e848fd53bb0d6e1323a05f9a68c6c3871e6"
+      },
+      {
+        "relative_path": "analytics/variant_significance.tsv",
+        "size_bytes": 8463,
+        "sha256": "dddd532ca5c50ba09896e0ae566e689fc9c91b6bfd89425285f6ee158180e84c"
+      },
+      {
+        "relative_path": "analytics/variant_significance_clinvar_pie.png",
+        "size_bytes": 17420,
+        "sha256": "826c0327b70d9297abb637c799b03555a7a8722d1a14620ec998b9bf8957fcf4"
+      },
+      {
+        "relative_path": "analytics/variant_significance_fisher.tsv",
+        "size_bytes": 8463,
+        "sha256": "dddd532ca5c50ba09896e0ae566e689fc9c91b6bfd89425285f6ee158180e84c"
+      },
+      {
+        "relative_path": "analytics/variant_significance_forest.png",
+        "size_bytes": 26216,
+        "sha256": "50e97f33bc74fcd9be60abc556abf3d5901f94097bb639698809a4091ce70382"
+      },
+      {
+        "relative_path": "analytics/variant_significance_gene_signal.png",
+        "size_bytes": 23834,
+        "sha256": "2d2129dfd4c4412f360a773993146dd66e1dc400dc99ee916b3838c5e87b7026"
+      },
+      {
+        "relative_path": "analytics/variant_significance_gene_signal.tsv",
+        "size_bytes": 974,
+        "sha256": "79a7c67b70c9eb866522412056eadacf1eea31e53ab39c96b3971e10e1479cbc"
+      },
+      {
+        "relative_path": "analytics/variant_significance_impact_pie.png",
+        "size_bytes": 14140,
+        "sha256": "b745049f883a2dd584f420281ac8871ce5393afd7837ad59801b743e6a0d7f8d"
+      },
+      {
+        "relative_path": "analytics/variant_significance_manhattan.png",
+        "size_bytes": 19283,
+        "sha256": "fb15929bf0d9aa0d3227d8aafc1030e05690bf654ae87bfd946f1fd7cf43f08d"
+      },
+      {
+        "relative_path": "analytics/variant_significance_plink.tsv",
+        "size_bytes": 8463,
+        "sha256": "dddd532ca5c50ba09896e0ae566e689fc9c91b6bfd89425285f6ee158180e84c"
+      },
+      {
+        "relative_path": "analytics/variant_significance_pvalue_histogram.png",
+        "size_bytes": 10123,
+        "sha256": "7d7a7ab26a382e3cb144f4686a9a387e1022d02d1feea0050ffd6a399d5a5e43"
+      },
+      {
+        "relative_path": "analytics/variant_significance_qq.png",
+        "size_bytes": 14217,
+        "sha256": "e69d51ac44232fd16fe8ce2269b1bfabb524b1aa1eaead8c20cb85172068140c"
+      },
+      {
+        "relative_path": "analytics/variant_significance_significant_table.png",
+        "size_bytes": 44888,
+        "sha256": "f50846fc9b1e6e91bbb3af5bf031a73116268ac02a76606be5cf103e0468192a"
+      },
+      {
+        "relative_path": "analytics/variant_significance_significant_variants.tsv",
+        "size_bytes": 1822,
+        "sha256": "ac170b82d5d077038e4a6a233a9756ae130e7ef8c074f00166151c0697a0e961"
+      },
+      {
+        "relative_path": "analytics/variant_significance_summary.tsv",
+        "size_bytes": 136,
+        "sha256": "94301d29be7ad61e5e07a3076df341f6693004a869062b3133306d93ce763584"
+      },
+      {
+        "relative_path": "bed/bed_manifest.json",
+        "size_bytes": 408,
+        "sha256": "ac46a484b8b8a09faa7cfe5112bd91d7c2d07f73775b6cc3dc6d6351a95fbd21"
+      },
+      {
+        "relative_path": "bed/cnv_consensus.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/cnv_pgx_genes.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/cnv_recurrent_regions.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/cnv_review_candidates.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/variant_significance_nominal_p005.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/variant_significance_top10.bed",
+        "size_bytes": 466,
+        "sha256": "0987b61b5768c03fd4b9bc5a9cab5f9fe284bc135ff1388287d166dfdbc87106"
+      },
+      {
+        "relative_path": "bed/variants_all.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/variants_high_moderate_impact.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "bed/variants_pgx_relevant.bed",
+        "size_bytes": 2790,
+        "sha256": "a1eeeaa3096ac95909fb52c824d536679ffa59a59a4cd504a9b1b43f5562f29d"
+      },
+      {
+        "relative_path": "cnv/ensemble/all_cnv_candidate_calls.tsv",
+        "size_bytes": 3096,
+        "sha256": "24b2679a8a4800c466959301dbf2760c1653e31df11ac5967aad442cee07c44a"
+      },
+      {
+        "relative_path": "cnv/ensemble/cnv_ensemble_manifest.json",
+        "size_bytes": 235,
+        "sha256": "0175716f0296f8bb41c03c3ac6bfc76cedcde29ad9db86051ba4ba61b89bc8d8"
+      },
+      {
+        "relative_path": "cnv/ensemble/consensus_cnv_segments.tsv",
+        "size_bytes": 1800,
+        "sha256": "b59b4c417348edc78601137e0748983858723274a52cc0ff9bcf785d62114aff"
+      },
+      {
+        "relative_path": "cnv/ensemble/review_cnv_segments.tsv",
+        "size_bytes": 1800,
+        "sha256": "b59b4c417348edc78601137e0748983858723274a52cc0ff9bcf785d62114aff"
+      },
+      {
+        "relative_path": "db_enrichment/api_provider_status.json",
+        "size_bytes": 379,
+        "sha256": "8a690c14b07a064df0e1b3a28d168152baad1dee81e663fa730ad3ba60c92a9a"
+      },
+      {
+        "relative_path": "db_enrichment/known_variants.tsv",
+        "size_bytes": 78662,
+        "sha256": "fca22ba23ba1b45a79f5db266e6c9101def0912b5059a1d30a5855298aee2b5e"
+      },
+      {
+        "relative_path": "db_enrichment/known_variants_report.html",
+        "size_bytes": 208,
+        "sha256": "73529bcf71584044382af4ad9b514ec197bf702b4d644401f726d46200177cc8"
+      },
+      {
+        "relative_path": "db_enrichment/novel_variants.tsv",
+        "size_bytes": 23082,
+        "sha256": "7ade65a522d94c6925ed728e9722e6da0776642077a7f8a228c164ff24ac3975"
+      },
+      {
+        "relative_path": "db_enrichment/novel_variants_report.html",
+        "size_bytes": 212,
+        "sha256": "0d343b49b29a0531aa83683294251bc07b756887d3f90582b8e5f0498b8c64cb"
+      },
+      {
+        "relative_path": "db_enrichment/variants_enriched.tsv",
+        "size_bytes": 100785,
+        "sha256": "ed29e64d65d29fa80410dc37eb567685c468f7349ceadf7cdc50e5296e93f623"
+      },
+      {
+        "relative_path": "diplotype_phenotype/phenotype_cohort.tsv",
+        "size_bytes": 149135,
+        "sha256": "7e556df778c9210e1a35d1d7b604bcad08d63c6901ffc5bd81ed1bc24e99cd5d"
+      },
+      {
+        "relative_path": "logs/demo_showcase.log",
+        "size_bytes": 117,
+        "sha256": "863d9dc7bc32c6879f88cf8e0a7e7e313260fdb60923b3475ebd40fbe8e9ef83"
+      },
+      {
+        "relative_path": "mega_vcf/cohort.mega.vcf.gz",
+        "size_bytes": 23397,
+        "sha256": "f2803e5d7b61d0a2c33e3cd3a51ea6a700a74f0646a9f7141710cea61622b138"
+      },
+      {
+        "relative_path": "mega_vcf/cohort.mega.vcf.gz.tbi",
+        "size_bytes": 71,
+        "sha256": "21a5f4b2b7fbf546bbbb1877bbf8f49722056098ace72b593c0c57fc03dcab94"
+      },
+      {
+        "relative_path": "mega_vcf/mega_vcf_explorer.html",
+        "size_bytes": 671565,
+        "sha256": "b7762b678e8283a185b1d7fcb8efedf39f85d6d069d737b91bd2d5ec24c05b8f"
+      },
+      {
+        "relative_path": "mega_vcf/mega_vcf_summary.tsv",
+        "size_bytes": 136199,
+        "sha256": "ddc9924539ada43f656a8f782625b6ab016323a67980bbab294e504bde30eabc"
+      },
+      {
+        "relative_path": "multiqc/multiqc_report.html",
+        "size_bytes": 196,
+        "sha256": "84b9c377705b3266566ee35eeb7e3877a9270b5a2ff424639645d7b1f515b20d"
+      },
+      {
+        "relative_path": "prioritization/prioritized_variants.tsv",
+        "size_bytes": 58934,
+        "sha256": "ee42964e88cdf14aa840d8330af1426887aec6de812ec38308a5cd7547099201"
+      },
+      {
+        "relative_path": "qc/coverage.tsv",
+        "size_bytes": 4992,
+        "sha256": "2b8e1b452a45408d18d2dc4820467fab1c8fc724fbfe06800e433e3d367c89c8"
+      },
+      {
+        "relative_path": "qc/fastq_qc.tsv",
+        "size_bytes": 4668,
+        "sha256": "b56d2845b2d7e20fe0839607096f1843abd675f4c826aa9ce949f8a30af7559c"
+      },
+      {
+        "relative_path": "qc/pgx_readiness.tsv",
+        "size_bytes": 38293,
+        "sha256": "50820232c117218a57ae629d03ab9bc4d018747085fb1b95b95f4f79a820203a"
+      },
+      {
+        "relative_path": "reports/pgx_demo_report.html",
+        "size_bytes": 2206,
+        "sha256": "04aceaaa460b786587fa4dfd151ce4bb934189441a55c9894dce49f1e3dfe5cc"
+      },
+      {
+        "relative_path": "reports/pgx_pipeline_report_context.json",
+        "size_bytes": 31566,
+        "sha256": "d83783ddf922577867377d277d06bd973f05a98b61150b55973001fea96e0e31"
+      },
+      {
+        "relative_path": "star_allele/star_allele_cohort_summary.tsv",
+        "size_bytes": 84314,
+        "sha256": "856456c4f23ea9565be2330a35791cfa0c481ca185e9175b0541e4d22e9580a7"
+      },
+      {
+        "relative_path": "star_allele/star_allele_status.json",
+        "size_bytes": 151,
+        "sha256": "f6e6c9d2b236c7fe508caeb9c232e235d092eba16cea26cec16e8772ffb268a7"
+      },
+      {
+        "relative_path": "variants/genotype_matrix.tsv",
+        "size_bytes": 4180,
+        "sha256": "aa3297a6d7cad6021f0596723e23031b384a69906da53f1d13dc570d74e3bea1"
+      },
+      {
+        "relative_path": "variants/variant_table.tsv",
+        "size_bytes": 1295,
+        "sha256": "9f4aca3cc3516e2081ac0cce6da532b544dcf58c9faa3593a0f546bac13bb5cb"
+      }
+    ]
+  },
+  "signature": {
+    "status": "demo unsigned",
+    "algorithm": "sha256 content manifest",
+    "payload_sha256": "0a1ff6c675abd8f539a9c4b0acae6a7fb21e1be987482832b7ad901e6e7533f5"
+  },
+  "synthetic_demo": true,
+  "research_use_disclaimer": "Synthetic outputs are for product demonstration only and are not clinical validation evidence."
+}

@@ -1,0 +1,7 @@
+metric	value
+samples	128
+mega_vcf_patient_rows	152
+unique_genes	30
+significant_p_lt_0_05	54
+pgx_drug_linked_rows	113
+cnv_rows	11
