@@ -29,20 +29,17 @@ Both are self-contained single-page apps: search, filter, click points, open var
 ## Why I built this
 
 I was assigned a project on genetic variants associated with response and non-response to
-platinum-salt chemotherapy in lung cancer. I couldn't start it.
-
-The lab sequenced patient blood samples in-house on an Illumina NextSeq 2000, but:
+a specific therapeutic reaction. Even though patient blood samples were sequenced:
 
 - **No CNV calling.** The instrument's CNV option wasn't licensed, so copy-number variants —
   which matter enormously in pharmacogenes — were simply never looked at.
-- **Bioinformatics was outsourced.** Everything between raw reads and tertiary analysis went to
-  an external company. Results took **months**, and came back incomplete or wrong often enough
-  that they had to be re-requested.
+- **No Bioinformatic Pipeline** Everything from VCF and tertiary analysis had to be done manually.
+  Results took **months**, and took a lot of time that could be allocated for other projects.
 
 So the biology project was blocked on a data-engineering problem. I built the missing
 infrastructure instead: a **fully local** pipeline that takes the lab from FASTQ to
 interpretation-ready evidence without patient data ever leaving the building, and without
-waiting on anyone.
+taking up time from researchers.
 
 ---
 
