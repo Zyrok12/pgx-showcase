@@ -82,7 +82,7 @@ fi
 # ---------------------------------------------------------------- post-check
 echo
 echo "--- scanning for real sample identifiers ---"
-# Matches the lab's real sample naming convention: letter, digits, "_S", digits.
+# Matches the non-synthetic sample naming convention: letter, digits, "_S", digits.
 if HITS=$(grep -rhoE '\b[A-Z][0-9]{1,3}_S[0-9]+\b' "$DEST" | sort -u) && [[ -n "$HITS" ]]; then
   echo "WARNING: possible real sample IDs found in the copied demo:" >&2
   echo "$HITS" >&2

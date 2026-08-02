@@ -3,8 +3,8 @@
 **FASTQ → aligned reads → SNV/indel + CNV calls → VEP annotation → pharmacogenomic database
 enrichment → cohort analytics → an interactive variant browser a researcher can actually use.**
 
-Built solo during my M1 GENIOMHE (AI & Bioinformatics) internship of Université Paris-Saclay /
-Université Évry, in a clinical pharmacogenomics lab (Grupo Duponte).
+Built solo during my M1 GENIOMHE (AI & Bioinformatics) internship at Université Paris-Saclay /
+Université Évry, hosted in a clinical pharmacogenomics lab (Grupo Duponte).
 
 > **This is a showcase repository.** It contains documentation, results, figures, two live
 > interactive demos, and selected source excerpts. The full pipeline (~1.5 MB of Python across
@@ -28,18 +28,20 @@ Both are self-contained single-page apps: search, filter, click points, open var
 
 ## Why I built this
 
-I was assigned a project on genetic variants associated with response and non-response to
-a specific therapeutic reaction. Even though patient blood samples were sequenced:
+Pharmacogenomic cohort work has a tooling gap.
 
-- **No CNV calling.** The instrument's CNV option wasn't licensed, so copy-number variants —
-  which matter enormously in pharmacogenes — were simply never looked at.
-- **No Bioinformatic Pipeline** Everything from VCF and tertiary analysis had to be done manually.
-  Results took **months**, and took a lot of time that could be allocated for other projects.
+Getting from raw sequencing reads to something a researcher can actually interpret means chaining
+together alignment, several variant callers, annotation, and evidence drawn from a dozen separate
+knowledge bases — and then repeating the database lookups variant by variant, across an entire
+cohort, largely by hand. Copy-number variants are frequently left out altogether, because calling
+them reliably from exome data is hard enough that many workflows simply skip it. In
+pharmacogenomics that omission matters: CNVs in genes like *CYP2D6* change metaboliser status
+outright.
 
-So the biology project was blocked on a data-engineering problem. I built the missing
-infrastructure instead: a **fully local** pipeline that takes the lab from FASTQ to
-interpretation-ready evidence without patient data ever leaving the building, and without
-taking up time from researchers.
+During a research internship in clinical pharmacogenomics I needed that entire path to exist, to
+be reproducible, and to run locally. So I built it — a pipeline taking a cohort from FASTQ to
+interpretation-ready evidence, with CNVs treated as first-class variants and patient data never
+leaving the machine it was sequenced on.
 
 ---
 
@@ -293,5 +295,5 @@ differently.
 
 **Bruno Young de Castro** — [LinkedIn](https://www.linkedin.com/in/brunoyoungdecastro) · <brunoyc@icloud.com>
 
-*Internship supervised by Marta Martín, PhD (host lab) and Valérie Chaudru, PhD
-(Université Paris-Saclay / Université Évry).*
+*Developed during a research internship in clinical pharmacogenomics, as part of the M1 GENIOMHE
+programme at Université Paris-Saclay / Université Évry.*

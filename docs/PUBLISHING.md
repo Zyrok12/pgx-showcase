@@ -4,14 +4,14 @@ Steps to get it live, plus how to refresh the demos later.
 
 ---
 
-## 1. Intellectual property
+## 1. Scope of what is published
 
-The pipeline was built during an internship, so the question comes up. The internship agreement
-assigns intellectual property to **Bruno Young de Castro**; the host organisation would have to
-negotiate and pay to acquire it. Publishing this showcase is therefore his call alone.
+Intellectual property in the pipeline belongs to **Bruno Young de Castro**, so publishing this
+showcase is his call.
 
-Two things narrow the exposure anyway: no pipeline source is published beyond two excerpts, and
-no patient data appears anywhere in the repository.
+Two things keep the published surface narrow regardless: no pipeline source is included beyond
+the two excerpts in `code-excerpts/`, and no patient data appears anywhere in the repository —
+every figure, demo page and table is generated from synthetic cohorts.
 
 ---
 
@@ -111,9 +111,9 @@ After refreshing, re-check for identifiers before committing:
 grep -roE '\b[A-Z][0-9]{1,3}_S[0-9]+\b' docs/demo/ | sort -u
 ```
 
-That pattern matches the lab's real sample-naming convention (a letter, digits, `_S`, digits).
-It must return nothing. Note that the pattern is written out rather than the IDs themselves —
-don't paste real sample IDs into this file to document them.
+That pattern matches the non-synthetic sample-naming convention used in the private workspace
+(a letter, digits, `_S`, digits). It must return nothing. Note that the pattern is described
+rather than the IDs themselves — don't paste real sample IDs into this file to document them.
 
 ---
 
@@ -135,6 +135,6 @@ capabilities, not clinical validation"* keeps the disclaimer and drops the frami
 ## What was already removed
 
 The Home-screen screenshot (`figures/01-main-ui-home.png`) originally included a *Recent activity*
-table listing real sample IDs from the lab cohort. It was cropped above that table before being
-added here. If you ever regenerate that screenshot, crop it the same way — or take it on a machine
-whose run history contains only demo runs.
+table listing non-synthetic sample IDs. It was cropped above that table before being added here.
+If you ever regenerate that screenshot, crop it the same way — or take it on a machine whose run
+history contains only demo runs.
