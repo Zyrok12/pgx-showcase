@@ -24,8 +24,6 @@ Both are self-contained single-page apps: search, filter, click points, open var
 | **[Analytics Dashboard →](https://Zyrok12.github.io/pgx-showcase/demo/analytics_dashboard_interactive.html)** | Click any point above the Bonferroni line on the Manhattan plot — a detail card opens with the PGx evidence for that variant. Then open the *PGx + Medications* tab and click `clopidogrel`. |
 | [Static figure dashboard →](https://Zyrok12.github.io/pgx-showcase/demo/analytics/analytics_dashboard.html) | The publication-ready matplotlib figure set, with methods and interpretation notes per section. |
 
-*(Replace `Zyrok12` after you enable GitHub Pages — see [docs/PUBLISHING.md](docs/PUBLISHING.md).)*
-
 ---
 
 ## Why I built this

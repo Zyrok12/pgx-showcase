@@ -4,60 +4,56 @@ Steps to get it live, plus how to refresh the demos later.
 
 ---
 
-## 1. Before you publish — the one thing to check
+## 1. Intellectual property
 
-The work was done during an internship. Your `LICENSE.md` in the private repo asserts your
-copyright, but internship agreements commonly assign IP to the host organisation, and this
-repository describes the pipeline in detail.
+The pipeline was built during an internship, so the question comes up. The internship agreement
+assigns intellectual property to **Bruno Young de Castro**; the host organisation would have to
+negotiate and pay to acquire it. Publishing this showcase is therefore his call alone.
 
-**Get written sign-off from Marta Martín / the host lab before making the repository public.** A
-short email confirming that publishing a portfolio description of the tool, with synthetic data
-only, is fine — and keeping the reply — costs nothing now and settles the question permanently.
-
-Two things already reduce the exposure: no pipeline source is published beyond two excerpts, and
-no patient data appears anywhere.
+Two things narrow the exposure anyway: no pipeline source is published beyond two excerpts, and
+no patient data appears anywhere in the repository.
 
 ---
 
-## 2. Replace the URL placeholders
+## 2. Publishing checklist
 
-Four files contain `Zyrok12`. Replace it with your GitHub username:
+Already done in this repository:
 
-```bash
-grep -rl 'Zyrok12' . | xargs sed -i 's/Zyrok12/your-actual-username/g'
-```
+- GitHub username, LinkedIn URL and contact email filled in throughout.
+- `.gitattributes` forces LF on `*.sh`, so `refresh_demo.sh` survives a Windows checkout.
+- `docs/.nojekyll` stops Pages running Jekyll over the demo HTML.
+- Demo pages copied from a run marked `"synthetic_demo": true`, with local paths scrubbed.
 
-On Windows PowerShell:
-
-```powershell
-Get-ChildItem -Recurse -Include *.md,*.html | ForEach-Object { (Get-Content $_ -Raw) -replace 'Zyrok12','your-actual-username' | Set-Content $_ -NoNewline }
-```
-
-Then fill in your LinkedIn URL and email at the bottom of `README.md`.
-
----
-
-## 3. Create the repository and push
-
-```bash
-cd pgx-showcase
-git init
-git add .
-git commit -m "PGX Pipeline showcase: docs, results, figures, live demos, code excerpts"
-git branch -M main
-git remote add origin https://github.com/Zyrok12/pgx-showcase.git
-git push -u origin main
-```
-
-Before the first push, sanity-check what you're about to publish:
+Before any push, sanity-check what you are about to make public:
 
 ```bash
 git status --short
 du -sh .
 ```
 
-Expect roughly 4 MB and no `.vcf`, `.bam` or `.fastq` files. The `.gitignore` blocks them, but
-look anyway — this is the step where a mistake becomes permanent and public.
+Expect roughly 3–4 MB and no `.vcf`, `.bam` or `.fastq` files anywhere. `.gitignore` blocks them,
+but look anyway — this is the step where a mistake becomes permanent and public.
+
+---
+
+## 3. Create the repository and push
+
+Create an **empty** repository on github.com first — no README, no `.gitignore`, no license, or
+the first push is rejected as non-fast-forward.
+
+```bash
+cd pgx-showcase
+git init
+git add -A
+git commit -m "PGX Pipeline showcase: docs, results, figures, live demos, code excerpts"
+git branch -M main
+git remote add origin https://github.com/Zyrok12/pgx-showcase.git
+git push -u origin main
+```
+
+> On Windows, do **not** wrap `git remote get-url origin` in a script with
+> `$ErrorActionPreference = 'Stop'`. Git writes "No such remote" to stderr, which PowerShell 5.1
+> promotes to a terminating error. Use `git remote` and test whether the output contains `origin`.
 
 ---
 
